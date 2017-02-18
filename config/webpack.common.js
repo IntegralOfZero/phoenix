@@ -24,22 +24,20 @@ module.exports = {
         } , 'angular2-template-loader']
       },
       {
+        test: /\.scss$/,
+        loader: "raw-loader!sass-loader?sourceMap" // compiles Sass to CSS
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
+      },
+      {
         test: /\.html$/,
         loader: 'html-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file-loader?name=assets/[name].[hash].[ext]'
-      },
-      {
-        test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
-      },
-      {
-        test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw-loader'
       }
     ]
   },

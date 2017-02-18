@@ -1,7 +1,15 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  selector: "my-app",
+  template: require("./app.component.html"),
+  styles: [require("./app.component.scss")] 
 })
-export class AppComponent  { name = 'Angular'; }
+
+export class AppComponent {
+  name = 'Angular';
+
+  constructor() {
+    console.log("HELLO")
+  }
+}
