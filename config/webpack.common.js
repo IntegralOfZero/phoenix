@@ -11,7 +11,8 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js'],
+    modules: [ helpers.root("node_modules") ] 
   },
 
   module: {
@@ -24,10 +25,14 @@ module.exports = {
         } , 'angular2-template-loader']
       },
       {
+        // resolves and compiles Sass to CSS, and then load it as CSS text directly into where it's being imported
         test: /\.scss$/,
-        loader: "raw-loader!sass-loader?sourceMap" // compiles Sass to CSS
+        loader: "raw-loader!sass-loader?sourceMap" 
       },
       {
+        // resolves CSS imports and converts it to CommonJS, and then load them into HTML style tag nodes
+        // which are placed onto the output page. But, with the plugin, they are then further extracted 
+        // and then placed into the external css file as specified where the plugin is defined
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
       },
