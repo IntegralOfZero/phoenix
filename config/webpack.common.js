@@ -11,7 +11,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.ts', '.js'], 
+    extensions: ['.ts', '.js'],
     modules: [ helpers.root("node_modules") ] 
   },
 

@@ -2,11 +2,46 @@ $primary-color: rgb(20, 100, 255);
 $content-bg-color: rgb(0, 102, 204);
 $text-color: white;
 
-div {
-    background-color: black;
-}
-
-md-toolbar {
+@mixin theme() {
     color: $text-color;
     background-color: $content-bg-color;
+}
+
+.toolbar {
+    align-items: flex-end;
+    height: auto;
+    padding: 10px; 
+
+    color: $text-color;
+    background-color: $primary-color;
+    
+    .logo {
+        margin: 0px;
+
+        color: $primary-color;
+        font-size: 65px;
+        font-style: italic;
+        font-family: "Times New Roman", serif;
+
+        text-shadow: 
+            7px 7px 7px rgb(255, 255, 255),
+            7px -10px 7px rgb(255, 255, 255),
+            -7px 7px 7px rgb(255, 255, 255),
+            -7px -10px 7px rgb(255, 255, 255),
+            7px 7px 7px rgb(255, 255, 255);
+
+        -moz-transition: color 0.5s ease-in, text-shadow 0.5s ease-in;
+        -webkit-transition: color 0.5s ease-in, text-shadow 0.5s ease-in;
+    }
+
+    &:hover {
+        .logo {
+            color: $text-color;
+            text-shadow:
+                5px 5px 8px #7DF9FF,
+                5px -8px 8px #7DF9FF,
+                -5px 5px 8px #7DF9FF,
+                -5px -8px 8px #7DF9FF;
+        }
+    }
 }

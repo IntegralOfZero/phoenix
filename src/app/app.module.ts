@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent }  from './app.component';
 import { MaterialModule } from '@angular/material';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+ 
 let routes: Routes = [
   {
     path: "",
@@ -19,7 +20,8 @@ let routes: Routes = [
 @NgModule({
   imports:      [
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
    // RouterModule.forRoot(routes)
   ],
   declarations: [ AppComponent ],
